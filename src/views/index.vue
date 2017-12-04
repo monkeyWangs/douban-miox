@@ -2,6 +2,8 @@
   <div class="moving">
     <div class="tit">
       <h1>电影票 - {{city}}</h1>
+      <h3 @click="$router.push('/login')">{{username || '登录'}}</h3>
+      <h3 @click="logout" v-if="username">登出</h3>
     </div>
     <div class="moviesList">
       <div class="movie-container">
@@ -27,6 +29,7 @@
 
   export default class Index {
     city = '杭州'
+    username = localStorage.getItem('username')
     moviesList = []
     value = 0
     /**
@@ -40,9 +43,9 @@
         this.moviesList = res.data.subjects
       })
     }
-
-    showDetail (id) {
-      this.$router.push('/detail', {subjectId: id})
+    logout () {
+      localStorage.clear('username')
+      this.username = null
     }
   }
 </script>
@@ -61,6 +64,10 @@
       width: 560px;
       margin: 0 auto;
       margin-top: 20px;
+      h3 {
+        display: inline-block;
+        margin-left: 100px;
+      }
       h1 {
         display: inline-block;
         width: 126px;

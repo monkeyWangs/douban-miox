@@ -13,7 +13,9 @@ import plugins from './assets/js/plugins'
 Vue.use(VVUI)
 
 // 新建Miox对象
-const app = new Miox()
+const app = new Miox({
+  max: 1
+})
 
 // 各种事件
 /* eslint-disable */

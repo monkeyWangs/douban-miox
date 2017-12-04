@@ -30,6 +30,11 @@
           rating: {}
         }
       }
+    },
+    methods: {
+      showDetail (id) {
+        this.$router.push('/detail', {}, {subjectId: id})
+      }
     }
   }
 </script>

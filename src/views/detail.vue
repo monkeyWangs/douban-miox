@@ -87,8 +87,7 @@
     movieDetail = {images: [], rating: {}}
 
     @life mounted () {
-      console.log(this.$router.getParams('subjectId'))
-      Api.doubanApi.v2_movie_subject_get(this.$router.getParams('subjectId')).then(res => {
+      Api.doubanApi.v2_movie_subject_get(this.$router.getQuery('subjectId')).then(res => {
         this.movieDetail = res.data
       })
     }
