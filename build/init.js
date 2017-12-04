@@ -10,7 +10,7 @@ var configPath = path.resolve(__dirname, '../src/config.json');
 
 // 生成config文件
 fs.writeFileSync(configPath, JSON.stringify({
-  apiEnv: 'mock'
+  apiEnv: 'development'
 }, null, 4));
 
 console.log(configPath + ' had credted');
